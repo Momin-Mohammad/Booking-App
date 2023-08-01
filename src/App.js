@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
+import BookingForm from './Components/BookingForm';
+import { useState } from 'react';
 
 function App() {
+  const[facility,setFacility] = useState("");
+
+  const changeFacility=(name)=>{
+    setFacility(name);
+  }
+  console.log(facility)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <button 
+        className='App-button'
+        style={facility==="Clubhouse"?{backgroundColor:"green"}:{backgroundColor:"gray"}} 
+        value="Clubhouse" 
+        onClick={(e)=>changeFacility(e.target.value)}
+        >Book Club House</button>
+        <button 
+        className='App-button'
+        style={facility==="Tennis Court"?{backgroundColor:"green"}:{backgroundColor:"gray"}}
+        value="Tennis Court" 
+        onClick={(e)=>changeFacility(e.target.value)}
+        >Book Tennis Court</button>
+      </div>
+      {
+        facility?<BookingForm
+        facility={facility}
+         />
+         :null
+      }
+      
     </div>
   );
 }

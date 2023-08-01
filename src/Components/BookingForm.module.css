@@ -1,0 +1,22 @@
+.BookingForm_mainDiv{
+    width: 70%;
+    margin: auto;
+    padding: 2% 3%;
+    border : 2px solid black
+}
+
+form{
+    text-align: start;
+}
+
+form > input{
+    width: 98%;
+    margin: auto;
+    font-size: medium;
+    padding: 1%;
+    margin-bottom: 2%;
+}
+
+label{
+    font-weight: 600;
+}
