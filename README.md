@@ -12,6 +12,10 @@
 5.In a new terminal run the command "npm run server" to run the json server. This will run the server on port 8080.
 ## Now the application is ready to use.
 
+## Deployment:
+[website link]https://elaborate-melba-42c7b4.netlify.app/
+* Make sure to start the json server by running the command "npm run server" in the command terminal.
+
 ## Features:
 1.One can book to either of the two available facilities.
 
