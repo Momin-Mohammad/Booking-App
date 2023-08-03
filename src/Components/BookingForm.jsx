@@ -10,7 +10,7 @@ export default function BookingForm({facility}){
     const[allBooking,setAllBooking] = useState([]);
 
     const getBookings = ()=>{
-        axios.get("http://localhost:8080/bookings")
+        axios.get("https://adda-mock-server.onrender.com/bookings")
         .then(res=>{
             let filterBooking = res.data?.filter((ele)=>ele.facility===facility)
             setAllBooking(filterBooking);
@@ -78,15 +78,15 @@ export default function BookingForm({facility}){
         let cost = checkAvailability();
         if(typeof(cost)==="object"){
         let id="";
-        axios.post("http://localhost:8080/bookings",bookingDetails)
+        axios.post("https://adda-mock-server.onrender.com/bookings",bookingDetails)
         .then(res=>{
                 id=res.data.id;
             alert(`Booked, Rs. ${cost.totalCost}`);
             getBookings();
-            setTimeout(()=>{
-                axios.delete(`http://localhost:8080/bookings/${id}`)
-                .then(res=>console.log(res.data)).catch(err=>console.log(err))
-            },30000) 
+            // setTimeout(()=>{
+            //     axios.delete(`https://adda-mock-server.onrender.com/bookings/${id}`)
+            //     .then(res=>console.log(res.data)).catch(err=>console.log(err))
+            // },30000) 
             
         }).catch(err=>console.log(err));
     }
@@ -102,8 +102,8 @@ export default function BookingForm({facility}){
             <h2 style={{textAlign:"center"}}>{facility} booking form :</h2>
             {
                 facility==="Clubhouse"?
-                <text>(10am to 4pm: Rs. 100/hour, 4pm to 10pm: Rs. 500/hour)</text>
-                :<text>(Rs. 50/hour)</text>
+                <p>(10am to 4pm: Rs. 100/hour, 4pm to 10pm: Rs. 500/hour)</p>
+                :<p>(Rs. 50/hour)</p>
             }
             <form onSubmit={submitForm}>
                 <label>Enter Date:</label>
